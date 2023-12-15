@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [author, setAuthor] = useState("mario");
+  const [author, setAuthor] = useState("");
   const [isPending, setIsPending] = useState(false);
   const history = useHistory();
 
@@ -21,11 +21,10 @@ const Create = () => {
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(blog)
     }).then(() => {
-        console.log('new blog added')
+        alert('new blog added.')
         setIsPending(false)
         history.push('/')
     })
-
   }
 
   return (
@@ -46,13 +45,12 @@ const Create = () => {
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
         <label>Blog Author: </label>
-        <select
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}     
-        >
-          <option value="mario">mario</option>
-          <option value="yoshi">yoshi</option>
-        </select>
+        <input
+          type='text'
+          required
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        ></input>
         { !isPending && <button>Add Blog</button>}
         { isPending && <button disable>Adding Blog...</button>}
       </form>

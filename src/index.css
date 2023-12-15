@@ -84,6 +84,21 @@ body {
   text-decoration: none;
 }
 
+.empty-blogs {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.no-blogs-img {
+  height: 80px;
+  width: 75px;
+  margin-bottom: 10px;
+}
+
+.main-no-blog {
+  text-align: center;
+}
+
 .blog-details h2 {
   font-size: 20px;
   color: #ff3131;
